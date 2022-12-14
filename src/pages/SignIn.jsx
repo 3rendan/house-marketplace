@@ -3,7 +3,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg'
 import visibiltyIcon from '../assets/svg/visibilityIcon.svg'
+import { toast } from 'react-toastify'
 import { async } from '@firebase/util'
+import Oauth from '../components/Oauth'
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -28,7 +30,7 @@ const SignIn = () => {
         navigate('/')
       }    
     } catch (error) {
-      console.log(error)
+      toast.error('You have entered invalid credentials')
     }
   }
 
@@ -62,7 +64,7 @@ const SignIn = () => {
             onClick={() => setShowPassword((prevState) => !prevState)} 
           />
         </div>
-        <Link to='forgot-password' 
+        <Link to='/forgot-password' 
         className='forgotPasswordLink'>
             Forgot Password 
         </Link>
@@ -72,7 +74,7 @@ const SignIn = () => {
           </button>
         </div>
       </form>
-      {/* Google Oauth */}
+      <Oauth />
       <Link to='/sign-up' className='registerLink'>
         Sign Up Instead
       </Link>
