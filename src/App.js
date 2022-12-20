@@ -13,6 +13,7 @@ import Category from './pages/Category'
 import CreateListing from './pages/CreateListing'
 import Listing from './pages/Listing'
 import Contact from './pages/Contact'
+import './App.css'
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
         </Routes>
         <Navbar />
       </Router>
-      <ToastContainer />=
+      <ToastContainer />
     </>
   );
 }

@@ -2,6 +2,9 @@
 * {
   box-sizing: border-box;
 }
+.swiper-button-prev {
+  display: none;
+}
 
 html::-webkit-scrollbar {
   display: none;
