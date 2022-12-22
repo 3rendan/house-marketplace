@@ -37,6 +37,9 @@ const Slider = () => {
   if(loading) {
     return <Spinner />
   }
+  if(listings.length === 0) {
+    <> </>
+  }
   return listings && (
     <>
     <p className="exploreHeading">Recommended</p>

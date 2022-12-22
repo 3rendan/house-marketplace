@@ -62,6 +62,8 @@ const Profile = () => {
       [e.target.id]: e.target.value,
     }))
   }
+  const onEdit = (listingId) => navigate(`/edit-listing/${listingId}`)
+    
   const onDelete = async(id) => {
     if(window.confirm('Are you sure you want to delete?')) {
       await deleteDoc(doc(db, 'listings', id))
@@ -117,7 +119,7 @@ const Profile = () => {
             <p className="listingText">You Listings</p>
             <ul className='listingsList'>
               { listings.map((listing) => (
-                <ListingItem key={listing.id} listing={listing.data} id={listing.id} onDelete={ () => onDelete(listing.id)} />
+                <ListingItem key={listing.id} listing={listing.data} id={listing.id} onDelete={ () => onDelete(listing.id) } onEdit={ () => onEdit(listing.id)} />
               ))}
             </ul>
           </>
